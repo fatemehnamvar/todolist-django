@@ -83,3 +83,10 @@ def about(request):
         'about_key': 'welcome to about page.'
     }
     return render(request, 'about.html', context)
+
+
+def index(request):
+    context = {
+        'index_key': 'welcome to home page.'
+    }
+    return render(request, 'index.html', context)
