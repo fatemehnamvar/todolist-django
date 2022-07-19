@@ -4,16 +4,24 @@
 {% endblock title %}
 
 {% block content %}
+
 <div class="container">
-    <br>
-    <form method="POST" class="row">
-        {% csrf_token %}
-        <label class="col-md-4"></label>
-        <input type="text" class="form-control col-md-6" name="task" placeholder="{{task_obj.task}}" value="{{task_obj.task}}">
-        <input type="hidden" name="done" placeholder="{{task_obj.done}}" value="{{task_obj.done}}">
-        <br>
-        <button type="submit" class="btn btn-primary col-md-2">update task</button>
-    </form>
+    {% if  task_obj.owner == request.user %}
+        <form method="POST" class="row mt-5">
+            {% csrf_token %}
+            <div class="col-6">
+                <input type="text" class="form-control col-md-6" name="task" placeholder="{{task_obj.task}}" value="{{task_obj.task}}">
+                <input type="hidden" name="done" placeholder="{{task_obj.done}}" value="{{task_obj.done}}">
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary w-100">update task</button>
+            </div>
+        </form>
+    {% else %}
+    <p>Access denied, you are not allowed!</p>
+    {% endif %}
 </div>
+        
+
 
 {% endblock content%}
