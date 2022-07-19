@@ -1,10 +1,11 @@
 from statistics import mode
+from tkinter import CASCADE
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth.models import User
 
 
 class TaskList(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     task = models.CharField(max_length=300)
     done = models.BooleanField(default=False)
 
