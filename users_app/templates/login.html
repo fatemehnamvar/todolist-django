@@ -2,12 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Register page</title>
+    <title>Login on page</title>
 {% endblock title %}
 
 {% block content %}
     <div class="container">
-        <h1 class="mt-3">Register on taskmate</h1>
+        <h1 class="mt-3">Login on Taskmate</h1>
         {% if  messages%}
         {% for message in messages %}
             <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -20,8 +20,8 @@
     {% endif %}
         <form method="POST" class="mt-5">
             {% csrf_token %}
-            {{register_form|crispy}}
-            <button type="submit" class="btn btn-primary">Register</button>
+            {{form|crispy}}
+            <button type="submit" class="btn btn-primary mt-3">Login</button>
         </form>
     </div>
 {% endblock content %}

@@ -127,3 +127,5 @@ STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TELPLATE_PACK = 'bootstratp5'
+LOGIN_REDIRECT_URL = "todolist"
+LOGIN_URL = "login"

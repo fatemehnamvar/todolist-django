@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block title %}
-<title>todolist page</title>
+<title>Todolist page</title>
 {% endblock title %}
 
 {% block content %}
@@ -31,7 +31,7 @@
       <br>
 
     <table class="table table-bordered text-center">
-        <thead class="thead-dark">
+        <thead class="table-dark">
           <tr class="row">
             <th class="col-7">Task</th>
             <th class="col-3">Done</th>
@@ -44,7 +44,7 @@
                 {% for obj in all_tasks%}
                     {% if obj.done %}
                         <tr class="table-success row">
-                            <td class="col-7">{{obj.task}}</td>
+                            <td class="col-7"><del>{{obj.task}}</del></td>
                             <td class="col-3"><a href={% url 'pending_task' obj.id %}><button type="button" class="btn btn-dark">mark as pending</button></a></td>
                             <td class="col-1"><a href={% url 'edit_task' obj.id %}><button type="button" class="btn btn-warning">Edit</button></a></td>
                             <td class="col-1"><a href={% url 'delete_task' obj.id %}><button type="button" class="btn btn-danger">Delete</button></a></td>
@@ -59,9 +59,6 @@
                     {% endif %}
                 {% endfor %}
             {% endif %}
-            
-
-
 
         </tbody>
       </table>
@@ -78,8 +75,5 @@
           <li class="page-item"><a class="page-link" href="?page={{all_tasks.paginator.num_pages}}">>></a></li>
         </ul>
       </nav>
-    
-
-
 </div>
 {% endblock content%}
